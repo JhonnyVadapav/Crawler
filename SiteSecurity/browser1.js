@@ -1,5 +1,7 @@
 async function domExtracter(){
     const mainUrl=document.getElementById('urltoscan').value;
+    const mainUrlObj=new URL(mainUrl);
+    const domain=mainUrlObj.hostname;
     const response1= await fetch('/domain',{
         method:'POST',
         headers:{
@@ -8,22 +10,22 @@ async function domExtracter(){
         body:JSON.stringify({Domain:mainUrl})
     });
     if(response1.ok){
-        const report=await response.json();
-        displayReport(report);
+        const report1=await response1.json();
+        displayReport(report1);
     }
     else{
         console.error("Error finding the domain");
     }
-    const response2= await fetch('/domain2',{
+    const response2= await fetch('/domain',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
         body:JSON.stringify({Domain:mainUrl})
     });
-    if(response1.ok){
-        const report=await response.json();
-        displayReport(report);
+    if(response2.ok){
+        const report2=await response2.json();
+        displayReport(report2);
     }
     else{
         console.error("Error finding the domain");

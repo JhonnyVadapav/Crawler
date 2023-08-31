@@ -23,6 +23,22 @@ app.post('/domain',async (req,res)=>{
         console.log(`Error in reporting ${err.message}`);
     }
 });
+app.post('/domain2',async (req,res)=>{
+    try{
+        const mainUrl=req.body.Domain;  
+        const url=new URL(mainUrl);
+        const domain=url.host;
+        if(!mainUrl){
+            return res.status(400).json();
+       }
+       console.log("Searching about the domain");
+       const record=await domainReport(domain);
+       res.json(record);
+    }
+    catch(err){
+        console.log(`Error in reporting ${err.message}`);
+    }
+});
 app.listen(port,()=>{
     console.log(`Server is running on ${port}`)
 });

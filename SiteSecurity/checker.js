@@ -1,5 +1,4 @@
 const { default: axios } = require("axios");
-const { application, json } = require("express");
 require('dotenv').config();
 const Api_Key=process.env.Api_key;
 async function UrlChecker(baseUrl){
@@ -37,7 +36,7 @@ async function urlAnalysis(id){
     };
     try{
         const response=await axios.request(options);
-        return response.data.data.attributes.stats;
+        return response.data;
     }
     catch(err){
         console.log(`Error during analysis: ${err.message}`);
@@ -55,7 +54,7 @@ async function domainReport(domain){
     };
     try{
         const response=await axios.request(options);
-        return response.data.data.attributes.last_analysis_results;
+        return response.data;
     }
     catch(err){
         console.log(`Error while domain scan: ${err.message}`);
