@@ -4,7 +4,6 @@ require('dotenv').config();
 const Api_Key=process.env.Api_key;
 async function UrlChecker(baseUrl){
     const apiUrl="https://www.virustotal.com/api/v3/urls";
-
     const options={
         method:"POST",
         url:apiUrl,
