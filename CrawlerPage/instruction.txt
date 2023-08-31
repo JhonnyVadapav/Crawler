@@ -1,0 +1,5 @@
+we installed jest(it is just a dev dependency i.e not required by the user) , which used to test files and ensure that the code does as it is intended to do.
+crawler.test.js is just we use to test different cases.
+NormalizeURL was create to sanitize inputs.
+JsDOM(not a dev dependency),
+making it run using main.js
